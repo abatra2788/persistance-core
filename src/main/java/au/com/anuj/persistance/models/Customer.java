@@ -17,7 +17,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 @Table(name = "CUSTOMERS")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,9 +25,6 @@ import lombok.ToString;
 @ToString
 public class Customer extends User {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -9201284172636634855L;
 
 	@Column(name="USR_ADDRESS")

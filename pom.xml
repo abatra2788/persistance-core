@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>au.com.anuj</groupId>
 	<artifactId>persistance</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<name>persistance</name>
 	<description>Persistance Core for Projects</description>
 
@@ -33,6 +33,13 @@
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
+
+	<scm>
+		<url>https://github.com/anujbatra2788/persistance-core.git</url>
+		<connection>scm:git:ssh://git@github.com:anujbatra2788/persistance-core.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com:anujbatra2788/persistance-core.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
 
 
 	<build>

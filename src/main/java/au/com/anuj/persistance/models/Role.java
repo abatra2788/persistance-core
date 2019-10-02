@@ -32,17 +32,9 @@ public class Role extends AbstractPersistenceEntity<Long> implements GrantedAuth
 	@Setter
 	private String roleName;
 	
-	public String getRoleName() {
-		return roleName;
-	}
-
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
-	}
-
 	@Override
 	public String getAuthority() {
-		return this.getRoleName();
+		return this.roleName;
 	}
 
 }
