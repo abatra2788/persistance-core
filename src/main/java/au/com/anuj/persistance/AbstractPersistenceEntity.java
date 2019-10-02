@@ -16,6 +16,7 @@ import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.domain.Persistable;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -26,49 +27,60 @@ import lombok.Setter;
 @MappedSuperclass
 @EqualsAndHashCode
 @NoArgsConstructor
-public class AbstractEntity<T extends Serializable> {
+public class AbstractPersistenceEntity<T extends Serializable> implements Serializable, Persistable<T> {
 
+	protected static final long serialVersionUID = 1L;
+	
 	@Getter
 	@Setter
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@NonNull
 	@Column(name = "OBJ_ID")
-	private T id;
+	protected T id;
 	
 	@Getter
 	@Setter
 	@CreatedDate
 	@Column(name = "OBJ_CREATE_TS")
-	private Instant createTime;
+	protected Instant createTime;
 	
 	@Getter
 	@Setter
 	@LastModifiedDate
 	@Column(name = "OBJ_MODIFY_TS")
-	private Instant modifiedTime;
+	protected Instant modifiedTime;
 	
 	@Getter
 	@Setter
 	@CreatedBy
 	@Column(name = "OBJ_CREATED_BY")
-	private String createdBy;
+	protected String createdBy;
 	
 	@Getter
 	@Setter
 	@LastModifiedBy
 	@Column(name = "OBJ_MODIFIED_BY")
-	private String modifiedBy;
+	protected String modifiedBy;
 	
 	@Getter
 	@Setter
 	@Version
 	@Column(name = "OBJ_VERSION")
-	private Long version;
+	protected Long version;
 	
 	@Getter
 	@Setter
 	@Enumerated(EnumType.STRING)
 	@Column(name = "OBJ_STATUS_CD")
-	private EntityStatus status;
+	protected EntityStatus status;
+
+	public T getId() {
+		return this.id;
+	}
+
+	@Override
+	public boolean isNew() {
+		return (null == this.getId()) ? true : false;
+	}
 }
