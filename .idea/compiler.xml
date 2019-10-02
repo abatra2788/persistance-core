@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="persistance" />
         <module name="plan-it-api" />
         <module name="persistance-core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="persistance" target="1.8" />
       <module name="persistance-core" target="1.8" />
       <module name="plan-it-api" target="1.8" />
     </bytecodeTargetLevel>
